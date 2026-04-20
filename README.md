@@ -22,7 +22,7 @@ Abra o terminal, navegue até a pasta do projeto e execute o arquivo principal:
 cd PDV_Extensionista-master
 
 # 2. Execute o arquivo principal (Linux ou macOS)
-python3 nome_do_arquivo_principal.py
+python3 main.py
 
 # 2. Execute o arquivo principal (Windows)
-python nome_do_arquivo_principal.py
+python main.py
