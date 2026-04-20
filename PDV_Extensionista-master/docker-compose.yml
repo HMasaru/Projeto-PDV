@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados MySQL
+  db:
+    image: mysql:8.0
+    container_name: pdv_mysql
+    restart: always
+    environment:
+      # Use suas credenciais do Python Model
+      MYSQL_ROOT_PASSWORD: rootpdv123 # Senha do root (admin do MySQL)
+      MYSQL_DATABASE: pdv
+      MYSQL_USER: zanatta
+      MYSQL_PASSWORD: pdvpassword123
+    ports:
+      # Mapeia a porta 3306 do container para a porta 3306 da sua máquina
+      - "33066:3306"
+    volumes:
+      # Persistência dos dados
+      - pdv-data:/var/lib/mysql
+      # Script de inicialização do banco (executado na primeira vez)
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
+
+volumes:
+  pdv-data:

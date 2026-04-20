@@ -1,0 +1,5 @@
+customtkinter
+mysql-connector-python
+requests
+matplotlib
+# Se você tiver mais alguma biblioteca instalada que não está aqui, adicione.
